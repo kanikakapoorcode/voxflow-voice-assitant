@@ -707,6 +707,4 @@
       }
     });
   }
-
-  console.log('VoxFlow Voice Assistant is ready on this page.');
 })();

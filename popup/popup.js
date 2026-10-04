@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const testMicBtn = document.getElementById('test-mic-btn');
   const testMicLabel = document.getElementById('test-mic-label');
   const testMicFeedback = document.getElementById('test-mic-feedback');
-  const openPlaygroundBtn = document.getElementById('open-playground-btn');
 
   // Load existing settings from chrome.storage
   if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
@@ -58,15 +57,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       apiKeyInput.type = 'password';
       toggleKeyVisibilityBtn.textContent = '👁️';
-    }
-  });
-
-  // Open Interactive Playground
-  openPlaygroundBtn.addEventListener('click', () => {
-    if (typeof chrome !== 'undefined' && chrome.tabs && chrome.runtime) {
-      chrome.tabs.create({ url: chrome.runtime.getURL('playground/playground.html') });
-    } else {
-      window.open('../playground/playground.html', '_blank');
     }
   });
 

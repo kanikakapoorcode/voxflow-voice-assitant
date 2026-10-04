@@ -10,7 +10,7 @@
 [![Browser Support](https://img.shields.io/badge/Chrome%20%7C%20Edge%20%7C%20Brave-Supported-10b981.svg?style=for-the-badge)](https://www.google.com/chrome/)
 [![License](https://img.shields.io/badge/License-MIT-a855f7.svg?style=for-the-badge)](LICENSE)
 
-[Installation](#-installation-guide) • [Key Features](#-key-features) • [Voice Commands](#-spoken-punctuation--commands) • [Interactive Sandbox](#-interactive-test-sandbox) • [Architecture](#-project-structure)
+[Installation](#-installation-guide) • [Key Features](#-key-features) • [Voice Commands](#-spoken-punctuation--commands) • [Architecture](#-project-structure)
 
 </div>
 
@@ -65,21 +65,6 @@
 
 ---
 
-## 🎮 Interactive Test Sandbox
-
-VoxFlow comes bundled with a standalone, real-world test environment:
-
-```text
-voxflow-voice-assistant/playground/playground.html
-```
-
-To test it immediately:
-1. Double click or open [`playground/playground.html`](playground/playground.html) in your browser.
-2. Try dictating into the **Email Composer**, the **Slack Chat Simulator**, or the **Twitter Character-Count Composer**.
-3. Switch tones in real time using the selector inside the floating capsule.
-
----
-
 ## 🗣️ Spoken Punctuation & Commands
 
 While dictating, speak natural punctuation commands to format your writing on the fly:
@@ -119,19 +104,16 @@ voxflow-voice-assistant/
 ├── content.js                 # Floating capsule UI, speech recognition & direct insertion
 ├── content.css                # Glassmorphic styles, keyframe animations & themes
 ├── README.md                  # Project documentation
+├── LICENSE                    # MIT open-source license
 ├── icons/                     # Extension raster icons
 │   ├── icon16.png
 │   ├── icon32.png
 │   ├── icon48.png
 │   └── icon128.png
-├── popup/                     # Toolbar settings popup
-│   ├── popup.html             # Options UI (tone, language, AI keys, live mic test)
-│   ├── popup.css              # Dark theme popup design
-│   └── popup.js               # Settings sync via chrome.storage.sync
-└── playground/                # Interactive testing sandbox
-    ├── playground.html        # Simulators for Email, Slack, and Twitter
-    ├── playground.css         # Modern dual-column sandbox styling
-    └── playground.js          # Interactive sandbox event handlers
+└── popup/                     # Toolbar settings popup
+    ├── popup.html             # Options UI (tone, language, AI keys, live mic test)
+    ├── popup.css              # Dark theme popup design
+    └── popup.js               # Settings sync via chrome.storage.sync
 ```
 
 ---

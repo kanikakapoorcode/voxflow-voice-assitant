@@ -32,8 +32,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     title: '🎤 Start VoxFlow Voice Dictation',
     contexts: ['editable']
   });
-
-  console.log('VoxFlow extension successfully installed/updated.');
 });
 
 // Handle Context Menu clicks
