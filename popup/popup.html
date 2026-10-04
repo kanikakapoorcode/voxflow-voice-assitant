@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoxFlow - Smart Voice Dictation</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="vf-popup-container">
+    <!-- Header -->
+    <header class="vf-header">
+      <div class="vf-brand">
+        <div class="vf-logo-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+          </svg>
+        </div>
+        <div class="vf-brand-text">
+          <h1>VoxFlow</h1>
+          <span class="vf-tagline">Universal Voice Dictation</span>
+        </div>
+      </div>
+      <div class="vf-status-pill">
+        <span class="vf-indicator-dot"></span> Active
+      </div>
+    </header>
+
+    <!-- Main Settings Form -->
+    <main class="vf-body">
+      <!-- Section: Voice Polish Tone -->
+      <section class="vf-section">
+        <label class="vf-label" for="tone-select">Default Polish Tone</label>
+        <div class="vf-select-wrapper">
+          <select id="tone-select" class="vf-select">
+            <option value="clean">✨ Clean & Punctuate (Recommended)</option>
+            <option value="professional">💼 Professional / Corporate Email</option>
+            <option value="casual">💬 Friendly Chat & Social</option>
+            <option value="bullet">📋 Bullet Points Summary</option>
+            <option value="concise">⚡ Concise & Direct</option>
+            <option value="raw">🎙️ Raw Dictation (Verbatim)</option>
+          </select>
+        </div>
+        <p class="vf-hint">Auto-formats spoken words into proper sentences with punctuation.</p>
+      </section>
+
+      <!-- Section: Language -->
+      <section class="vf-section">
+        <label class="vf-label" for="language-select">Speech Language</label>
+        <div class="vf-select-wrapper">
+          <select id="language-select" class="vf-select">
+            <option value="en-US">English (United States)</option>
+            <option value="en-GB">English (United Kingdom)</option>
+            <option value="en-IN">English (India)</option>
+            <option value="en-AU">English (Australia)</option>
+            <option value="es-ES">Español (Spanish)</option>
+            <option value="fr-FR">Français (French)</option>
+            <option value="de-DE">Deutsch (German)</option>
+            <option value="hi-IN">हिन्दी (Hindi)</option>
+            <option value="ja-JP">日本語 (Japanese)</option>
+            <option value="zh-CN">中文 (Mandarin)</option>
+            <option value="pt-BR">Português (Brazil)</option>
+            <option value="it-IT">Italiano (Italian)</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Section: Toggles -->
+      <section class="vf-section vf-toggles">
+        <div class="vf-toggle-row">
+          <div class="vf-toggle-info">
+            <span class="vf-toggle-title">Auto-Insert On Stop</span>
+            <span class="vf-toggle-desc">Automatically type text into focused field when you finish speaking</span>
+          </div>
+          <label class="vf-switch">
+            <input type="checkbox" id="auto-insert-toggle" checked>
+            <span class="vf-slider"></span>
+          </label>
+        </div>
+
+        <div class="vf-toggle-row">
+          <div class="vf-toggle-info">
+            <span class="vf-toggle-title">Audio Feedback Chimes</span>
+            <span class="vf-toggle-desc">Play gentle synthesizer sounds when listening starts or finishes</span>
+          </div>
+          <label class="vf-switch">
+            <input type="checkbox" id="sound-effects-toggle" checked>
+            <span class="vf-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section: AI Superpower (Optional) -->
+      <section class="vf-section vf-ai-card">
+        <div class="vf-ai-header">
+          <div class="vf-ai-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"></path>
+            </svg>
+            AI Rewrite Engine (Optional)
+          </div>
+          <span class="vf-badge-pro">Optional</span>
+        </div>
+        <p class="vf-hint">Zero setup needed for local speech! Add an API key for deep contextual rewrites.</p>
+        
+        <div class="vf-ai-inputs">
+          <select id="ai-provider-select" class="vf-select vf-select-sm">
+            <option value="gemini">Google Gemini (Recommended / Free Tier)</option>
+            <option value="openai">OpenAI (GPT-4o Mini)</option>
+          </select>
+          <div class="vf-input-group">
+            <input type="password" id="api-key-input" class="vf-input" placeholder="Paste your API Key here...">
+            <button type="button" id="toggle-key-visibility" class="vf-key-btn" title="Show/Hide">👁️</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Microphone Test Box -->
+      <div class="vf-mic-test-box">
+        <button id="test-mic-btn" class="vf-test-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          </svg>
+          <span id="test-mic-label">Test Microphone Live</span>
+        </button>
+        <div id="test-mic-feedback" class="vf-test-feedback">Click to test mic access</div>
+      </div>
+
+      <!-- Shortcut Bar -->
+      <div class="vf-shortcut-bar">
+        <span>Global Shortcut:</span>
+        <kbd class="vf-kbd">Alt + Shift + V</kbd>
+      </div>
+
+      <!-- Playground Launcher -->
+      <button id="open-playground-btn" class="vf-playground-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        Open Interactive Test Sandbox
+      </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="vf-footer">
+      <span>VoxFlow v1.0 • Works on all websites</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
